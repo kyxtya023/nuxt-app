@@ -611,7 +611,6 @@ const sendData = async (payload: { name: string; phone: string }) => {
         <div class="container">
           <div class="hero__inner">
             <div class="hero__content">
-              <span class="hero__badge" itemprop="category">#Хедер</span>
               <h1 class="hero__title" itemprop="name">
                 Мягкие окна из <span class="orange">гибкого ПВХ</span>
               </h1>
@@ -639,7 +638,10 @@ const sendData = async (payload: { name: string; phone: string }) => {
               </ul>
               <div class="hero__buttons">
                 <p class="hero__buttons-text">Хотите уточнить детали? Звоните прямо сейчас!</p>
-                <nuxt-link class="hero__btn" href="#smeta1">Расчет стоимости</nuxt-link>
+                <div style="display: flex; gap: 2rem;">
+                <nuxt-link class="hero__btn" href="#estimates">Расчет стоимости</nuxt-link>
+                <nuxt-link class="hero__btn" href="tel:+79661266606">Позвонить</nuxt-link>
+                </div>
               </div>
             </div>
             <div class="hero__image">
@@ -716,136 +718,12 @@ const sendData = async (payload: { name: string; phone: string }) => {
                   <span class="new-price">{{ price.new }}</span>
                   <span class="price-table__cell-text-gray">{{ item.size[i] }}</span>
                 </div>
-
               </div>
+              <span id="estimates"></span>
             </div>
           </div>
         </div>
       </div>
-
-      <section class="recomendation" ref="faqRef">
-        <div class="container">
-          <div class="recomendation__inner">
-            <h2 class="recomendation__title">
-              Преимущества мягких окон из <span class="orange"> ПВХ</span>
-            </h2>
-            <div class="recomendation__block-image">
-              <img src="~/assets/img/e2e51fae-f4df-4a6b-ad8a-78d5f228a5ad.jpg" class="recomendation__block-top-image"
-                alt="" />
-              <!-- <img
-              src="~/assets/img/IMG_7449.jfif"
-              class="recomendation__block-bottom-images"
-              alt=""
-            />
-            <img
-              src="~/assets/img/IMG_7823.jfif"
-              class="recomendation__block-bottom-images"
-              alt=""
-            />
-            <img
-              src="~/assets/img/_.jfif"
-              class="recomendation__block-bottom-images"
-              alt=""
-            /> -->
-            </div>
-            <div class="recomendation__block-text">
-              <p>
-                Мягкие окна – это изделие из плотной ПВХ пленки, окантованной по
-                периметру армированной тентовой тканью особой прочности. Идеальная
-                защита от любых погодных условий и насекомых!
-              </p>
-              <p>
-                В последнее время окна из ПВХ пользуются высоким спросом среди
-                владельцев беседок, веранд и террас. Рулонные шторы
-                многофункциональны и прекрасно вписываются в экстерьер – многие
-                именно поэтому предпочитают устанавливать такие конструкции на
-                своих верандах и беседках.
-              </p>
-            </div>
-            <ul class="recomendation__list">
-              <li class="recomendation__list-item">
-                Пленка ПВХ после монтажа на проем приобретает вид стекла и имеет
-                светопропускаемость более 95%
-              </li>
-              <li class="recomendation__list-item">
-                Тентовая окантовка предназначена для уменьшения воздействий
-                сезонных температурных перепадов на прозрачное мягкое стекло, тем
-                самым гарантируя долгую эксплуатацию изделий.
-              </li>
-              <li class="recomendation__list-item">
-                Мягкие окна легко монтируются на любую поверхность и не требуют
-                доработок проема под их установку.
-              </li>
-              <li class="recomendation__list-item">
-                Легко скручиваются в рулон в хорошую погоду и открывают панорамный
-                вид на участок.
-              </li>
-            </ul>
-            <div class="recomendation__block-items">
-              <div class="recomendation__item" v-for="(item, index) in recomendationItem" :key="index">
-                <div class="recomendation__item-icon">
-                  <img :src="item.icon" :alt="item.text" />
-                </div>
-                <h3 class="recomendation__item-title">{{ item.title }}</h3>
-                <p class="recomendation__item-text">{{ item.text }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="why" id="why">
-        <h2 class="why__title">Почему выбирают <span class="orange">нас?</span></h2>
-        <div class="why__inner">
-          <ClientOnly>
-            <swiper-container ref="containerRef" :slides-per-view="5" :space-between="60" :breakpoints="{
-              0: {
-                spaceBetween: 20,
-                slidesPerView: 1,
-              },
-              479: {
-                spaceBetween: 30,
-                slidesPerView: 1,
-              },
-              575: {
-                slidesPerView: 1.5,
-              },
-              768: {
-                spaceBetween: 40,
-                slidesPerView: 2,
-              },
-              1024: {
-                spaceBetween: 40,
-                slidesPerView: 2.5,
-              },
-              1440: {
-                spaceBetween: 40,
-                slidesPerView: 3.5,
-              },
-              1920: {
-                slidesPerView: 4,
-              },
-              2560: {
-                spaceBetween: 60,
-                slidesPerView: 4,
-              }
-            }" class="why__slider">
-              <swiper-slide v-for="(card, idx) in cards" :key="idx" class="why__card">
-                <div class="why__image">
-                  <img :src="card.image" :alt="card.text" />
-                </div>
-                <div class="why__header">
-                  <svg class="why__card-arc" xmlns="http://www.w3.org/2000/svg">
-                    <path></path>
-                  </svg>
-                  <h3 class="why__card-title">{{ card.title }}</h3>
-                  <p class="why__card-text">{{ card.text }}</p>
-                </div>
-              </swiper-slide>
-            </swiper-container>
-          </ClientOnly>
-        </div>
-      </section>
 
       <div class="estimates">
         <div class="">
@@ -1028,6 +906,129 @@ const sendData = async (payload: { name: string; phone: string }) => {
 
       </div>
 
+      <section class="recomendation" ref="faqRef">
+        <div class="container">
+          <div class="recomendation__inner">
+            <h2 class="recomendation__title">
+              Преимущества мягких окон из <span class="orange"> ПВХ</span>
+            </h2>
+            <div class="recomendation__block-image">
+              <img src="~/assets/img/e2e51fae-f4df-4a6b-ad8a-78d5f228a5ad.jpg" class="recomendation__block-top-image"
+                alt="" />
+              <!-- <img
+              src="~/assets/img/IMG_7449.jfif"
+              class="recomendation__block-bottom-images"
+              alt=""
+            />
+            <img
+              src="~/assets/img/IMG_7823.jfif"
+              class="recomendation__block-bottom-images"
+              alt=""
+            />
+            <img
+              src="~/assets/img/_.jfif"
+              class="recomendation__block-bottom-images"
+              alt=""
+            /> -->
+            </div>
+            <div class="recomendation__block-text">
+              <p>
+                Мягкие окна – это изделие из плотной ПВХ пленки, окантованной по
+                периметру армированной тентовой тканью особой прочности. Идеальная
+                защита от любых погодных условий и насекомых!
+              </p>
+              <p>
+                В последнее время окна из ПВХ пользуются высоким спросом среди
+                владельцев беседок, веранд и террас. Рулонные шторы
+                многофункциональны и прекрасно вписываются в экстерьер – многие
+                именно поэтому предпочитают устанавливать такие конструкции на
+                своих верандах и беседках.
+              </p>
+            </div>
+            <ul class="recomendation__list">
+              <li class="recomendation__list-item">
+                Пленка ПВХ после монтажа на проем приобретает вид стекла и имеет
+                светопропускаемость более 95%
+              </li>
+              <li class="recomendation__list-item">
+                Тентовая окантовка предназначена для уменьшения воздействий
+                сезонных температурных перепадов на прозрачное мягкое стекло, тем
+                самым гарантируя долгую эксплуатацию изделий.
+              </li>
+              <li class="recomendation__list-item">
+                Мягкие окна легко монтируются на любую поверхность и не требуют
+                доработок проема под их установку.
+              </li>
+              <li class="recomendation__list-item">
+                Легко скручиваются в рулон в хорошую погоду и открывают панорамный
+                вид на участок.
+              </li>
+            </ul>
+            <div class="recomendation__block-items">
+              <div class="recomendation__item" v-for="(item, index) in recomendationItem" :key="index">
+                <div class="recomendation__item-icon">
+                  <img :src="item.icon" :alt="item.text" />
+                </div>
+                <h3 class="recomendation__item-title">{{ item.title }}</h3>
+                <p class="recomendation__item-text">{{ item.text }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="why" id="why">
+        <h2 class="why__title">Почему выбирают <span class="orange">нас?</span></h2>
+        <div class="why__inner">
+          <ClientOnly>
+            <swiper-container ref="containerRef" :slides-per-view="5" :space-between="60" :breakpoints="{
+              0: {
+                spaceBetween: 20,
+                slidesPerView: 1,
+              },
+              479: {
+                spaceBetween: 30,
+                slidesPerView: 1,
+              },
+              575: {
+                slidesPerView: 1.5,
+              },
+              768: {
+                spaceBetween: 40,
+                slidesPerView: 2,
+              },
+              1024: {
+                spaceBetween: 40,
+                slidesPerView: 2.5,
+              },
+              1440: {
+                spaceBetween: 40,
+                slidesPerView: 3.5,
+              },
+              1920: {
+                slidesPerView: 4,
+              },
+              2560: {
+                spaceBetween: 60,
+                slidesPerView: 4,
+              }
+            }" class="why__slider">
+              <swiper-slide v-for="(card, idx) in cards" :key="idx" class="why__card">
+                <div class="why__image">
+                  <img :src="card.image" :alt="card.text" />
+                </div>
+                <div class="why__header">
+                  <svg class="why__card-arc" xmlns="http://www.w3.org/2000/svg">
+                    <path></path>
+                  </svg>
+                  <h3 class="why__card-title">{{ card.title }}</h3>
+                  <p class="why__card-text">{{ card.text }}</p>
+                </div>
+              </swiper-slide>
+            </swiper-container>
+          </ClientOnly>
+        </div>
+      </section>
 
       <!-- <div class="mosquito-table">
       <div class="container">
@@ -2292,21 +2293,6 @@ const sendData = async (payload: { name: string; phone: string }) => {
 
   &__content {
     position: relative;
-  }
-
-  &__badge {
-    font-family: "Nunito Sans";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 160%;
-    text-align: center;
-    color: #1A1D21;
-    padding: 0.2rem 0.8rem;
-    background-color: #82DBF7;
-    border-radius: 3.6rem;
-    margin-bottom: 1.6rem;
-    display: inline-flex;
   }
 
   &__title {

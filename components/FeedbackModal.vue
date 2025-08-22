@@ -113,6 +113,7 @@ const handleSubmit = async () => {
   padding: 20px 30px;
   max-width: 479px;
   width: 100%;
+  margin: 2rem;
 }
 
 .modal__h3 {
