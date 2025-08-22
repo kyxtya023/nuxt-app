@@ -69,7 +69,7 @@ const handleSubmit = async () => {
           </defs>
         </svg>
 
-        <h3 class="modal__h3">Остались вопросы?</h3>
+        <h3 class="modal__h3">Есть вопросы?</h3>
       </div>
       <p class="modal__text">
         Оставьте заявку — мы перезвоним и ответим на все ваши вопросы.

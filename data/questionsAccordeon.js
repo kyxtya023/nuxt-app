@@ -378,7 +378,7 @@ export const questions = [
     content: [ 
       {
         type: "image",
-        src: "https://optim.tildacdn.com/tild3737-3032-4234-b233-646164643562/-/resize/560x430/-/format/webp/10.jpg",
+        src: "/img/diploma1.webp",
         alt: "Вторая картинка",
       },
       {
@@ -425,7 +425,7 @@ export const questions = [
     content: [ 
       {
         type: "image",
-        src: "https://optim.tildacdn.com/tild3737-3032-4234-b233-646164643562/-/resize/560x430/-/format/webp/10.jpg",
+        src: "/img/Ресторан Молокоff.jpg",
         alt: "Вторая картинка",
       },
       {
@@ -462,7 +462,7 @@ export const questions = [
     content: [ 
       {
         type: "image",
-        src: "https://optim.tildacdn.com/tild3737-3032-4234-b233-646164643562/-/resize/560x430/-/format/webp/10.jpg",
+        src: "/img/scale_1200.png",
         alt: "Вторая картинка",
       },
       {
@@ -683,7 +683,7 @@ export const questions = [
     content: [ 
       {
         type: "image",
-        src: "https://optim.tildacdn.com/tild3737-3032-4234-b233-646164643562/-/resize/560x430/-/format/webp/10.jpg",
+        src: "/img/gallery/gallery27_27_11zon.jpg",
         alt: "Вторая картинка",
       },
       {
@@ -740,7 +740,7 @@ export const questions = [
     content: [ 
       {
         type: "image",
-        src: "https://optim.tildacdn.com/tild3737-3032-4234-b233-646164643562/-/resize/560x430/-/format/webp/10.jpg",
+        src: "/img/gallery/gallery/19.jpeg",
         alt: "Вторая картинка",
       },
       {

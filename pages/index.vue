@@ -18,111 +18,91 @@ import "swiper/css";
 
 const containerRef = ref(null)
 const swiper = useSwiper(containerRef)
-
 const imageLinks: string[] = [
-  // ID: gallery1
-  "https://picloud.cc/images/5c5c7cdd7f251dffa9493f46fdbbd868.jpg",
-  // ID: gallery2
-  "https://picloud.cc/images/4c2d6c4b1739e6dec1d61023c9a9d6e1.jpg",
-  // ID: gallery3
-  "https://picloud.cc/images/4db797d29316f73b9c52a3868ad2d9b9.jpg",
-  // ID: gallery4
+  // Локальные изображения .jpg
+  // 1
+  "/img/gallery/gallery/1.jpg",
+  // 2
+  "/img/gallery/gallery/2.jpg",
+  // 3
+  "/img/gallery/gallery/3.jpg",
+  // 4
+  "/img/gallery/gallery/4.jpg",
+  // 5
+  "/img/gallery/gallery/5.jpg",
+  // 6
+  "/img/gallery/gallery/6.jpg",
+  // 7
+  "/img/gallery/gallery/7.jpg",
+  // 8
+  "/img/gallery/gallery/8.jpg",
+  // 9
+  "/img/gallery/gallery/9.jpg",
+  // 10
+  "/img/gallery/gallery/10.jpg",
+  // 11
+  "/img/gallery/gallery/11.jpg",
+  // 12
+  "/img/gallery/gallery/12.jpg",
+  // 13
+  "/img/gallery/gallery/13.jpg",
+  // 14
+  "/img/gallery/gallery/14.jpg",
+
+  // Локальные изображения .jpeg
+  // 15
+  "/img/gallery/gallery/15.jpeg",
+  // 16
+  "/img/gallery/gallery/16.jpeg",
+  // 17
+  "/img/gallery/gallery/17.jpeg",
+  // 18
+  "/img/gallery/gallery/18.jpeg",
+  // 19
+  "/img/gallery/gallery/19.jpeg",
+  // 20
+  "/img/gallery/gallery/20.jpeg",
+  // 21
+  "/img/gallery/gallery/21.jpeg",
+  // 22
+  "/img/gallery/gallery/22.jpeg",
+  // 23
+  "/img/gallery/gallery/23.jpeg",
+  // 24
+  "/img/gallery/gallery/24.jpeg",
+  // 25
+  "/img/gallery/gallery/25.jpeg",
+  // 26
+  "/img/gallery/gallery/26.jpeg",
+
+  // Из внешнего источника picloud.cc
+  // 27
   "https://picloud.cc/images/058d441ccbee12fe2b798ac7c2a56739.jpg",
-  // ID: gallery5
-  "https://picloud.cc/images/3b24527518ad77f9e3bc87903b06208f.jpg",
-  // ID: gallery6
-  "https://picloud.cc/images/854bcf27af9820ce96de2700b33f6968.jpg",
-  // ID: gallery7
+  // 28
   "https://picloud.cc/images/7bb51b13644b2ff54965533e82ad974b.jpg",
-  // ID: gallery8
+  // 29
   "https://picloud.cc/images/9b7e0b37b66e1ed4ac250884e645b4d5.jpg",
-  // ID: gallery9
-  "https://picloud.cc/images/248be3f0d411aa0c51d92e4b13d08776.jpg",
-  // ID: gallery10
-  "https://picloud.cc/images/c63489b1626fce6a4d2ca629a7cd8e0b.jpg",
-  // ID: gallery11
-  "https://picloud.cc/images/fbf2ab1792b5b4e940dc90bb8797b46f.jpg",
-  // ID: gallery12
-  "https://picloud.cc/images/cefb4eb14de4612cb5f8356e5028e4fa.jpg",
-  // ID: gallery13
-  "https://picloud.cc/images/b34f3ec3ff57d84c1b9d0a18dcbe6444.jpg",
-  // ID: gallery14
-  "https://picloud.cc/images/946313d2989b4efc4cd3d363ac98b72c.jpg",
-  // ID: gallery15
-  "https://picloud.cc/images/5be970281a7aaa0b808f3d72fedb1b56.jpg",
-  // ID: gallery16
-  "https://picloud.cc/images/b9721e35c2a899c7f6f02eff24226d26.jpg",
-  // ID: gallery17
-  "https://picloud.cc/images/8fb69f041bb7ca03ee8b652f1eba1329.jpg",
-  // ID: gallery18
-  "https://picloud.cc/images/c92159fc565a2eb0124f36767aaaeac4.jpg",
-  // ID: gallery19
-  "https://picloud.cc/images/defdfca0ab3b14df4f3046796aa3229a.jpg",
-  // ID: gallery20
-  "https://picloud.cc/images/305fe215a0199197b8e32110eaf3aa07.jpg",
-  // ID: gallery21
-  "https://picloud.cc/images/64dc7cefb04ba0101eb665a0fa26826b.jpg",
-  // ID: gallery22
-  "https://picloud.cc/images/2adc7020611333c201d2db5c6c8d9ad9.jpg",
-  // ID: gallery23
-  "https://picloud.cc/images/1c4dd57ae82df930063f71d08e1acbea.jpg",
-  // ID: gallery24
-  "https://picloud.cc/images/11ad013ad492574cc71706e638e6775b.jpg",
-  // ID: gallery25
-  "https://picloud.cc/images/43161f4c5546d54a02aaee9754e089a8.jpg",
-  // ID: gallery26
-  "https://picloud.cc/images/640ebb18a667f735325fd0c9f05d123f.jpg",
-  // ID: gallery27
-  "https://picloud.cc/images/0fcf856c69e0540ca3c0d28988a4829a.jpg",
-  // ID: gallery28
-  "https://picloud.cc/images/adc18327937b1c2d4543c48068ccd3a0.jpg",
-  // ID: gallery29
-  "https://picloud.cc/images/f5f2fe011c8e6d38ea81b8625333695f.jpg",
-  // ID: gallery30
-  "https://picloud.cc/images/b8880abfb78a5ed0eaaa93cea8543d17.jpg",
-  // ID: gallery31
-  "https://picloud.cc/images/c289976f64e7d0dea3db41b1ac11fe0e.jpg",
-  // ID: gallery32
-  "https://picloud.cc/images/51c4e48f59ccfee4b7050c84ee1731e2.jpg",
-  // ID: gallery33
-  "https://picloud.cc/images/b102471eb966feb628f834b4682680f9.jpg",
-  // ID: gallery34
-  "https://picloud.cc/images/fa4511b202c6d06154f88e4260d1b5e6.jpg",
-  // ID: gallery35
-  "https://picloud.cc/images/25bdea69bb205bb292c53d71ff2e786b.jpg",
-  // ID: gallery36
+  // 48
   "https://picloud.cc/images/4619617cb1f1af12a38a058e40a4f2fd.jpg",
-  // ID: gallery37
+  // 49
   "https://picloud.cc/images/f0ef0e4dfbe2489897fe062a397fb436.jpg",
-  // ID: gallery38
+  // 50
   "https://picloud.cc/images/a2100106ab3f0acdde0db6e63fa605ec.jpg",
-  // ID: gallery39
+  // 51
   "https://picloud.cc/images/892a1220ca48bee2c2a05812428d984e.jpg",
-  // ID: gallery40
+  // 52
   "https://picloud.cc/images/ed2e09fca8981c318fc9f4e1c15babe4.jpg",
-  // ID: gallery41
-  "https://picloud.cc/images/82b54a62a23612024add67c1d784db0b.jpg",
-  // ID: gallery42
+  // 53
   "https://picloud.cc/images/478fad929879a5d735aca6559576833a.jpg",
-  // ID: gallery43
+  // 54
   "https://picloud.cc/images/d60a2901a25759868a22d2372c40dce8.jpg",
-  // ID: gallery44
-  "https://picloud.cc/images/439137dde9ae9b9bf9125049294ebf95.jpg",
-  // ID: gallery45
-  "https://picloud.cc/images/c65666635d3cdd0865ce86cf108f5e6e.jpg",
-  // ID: gallery46
-  "https://picloud.cc/images/4b290e3b340927df07c7bd4ba1bd6718.jpg",
-  // ID: gallery47
-  "https://picloud.cc/images/271ee39e166aee22676b7c8fbda79b03.jpg",
-  // ID: gallery48
-  "https://picloud.cc/images/d106109fa3ae546b5eaa8505f745ab57.jpg",
-  // ID: gallery49
+  // 60
   "https://picloud.cc/images/d6c8b4186524046ae4b77658aa9b20a1.jpg",
-  // ID: gallery50
+  // 61
   "https://picloud.cc/images/03858a5fbba7b708ce4bc68fcd239771.jpg",
-  // ID: gallery51
+  // 62
   "https://picloud.cc/images/cde585dd30e41263ba149ad1999f14de.jpg",
-  // ID: gallery52
+  // 63
   "https://picloud.cc/images/4c86766c8c6856f2ab917bcbfd6e7e99.jpg",
 ];
 
@@ -436,11 +416,11 @@ const services = [
   {
     title: "Комплект «Эконом»",
     image: "/img/IMG_5912.jfif",
-    description: "Пленка 700 мкм, морозостойкая до -39°C, окантовка ПВХ без фурнитуры",
+    description: "Пленка 700 мкм, морозостойкая до -39°C",
     prices: [
-      { old: "от 1600 руб.", new: "от 1400 руб." },
-      { old: "от 1500 руб.", new: "от 1300 руб." },
-      { old: "от 1400 руб.", new: "от 1200 руб." }
+      { old: "от 1600 руб.", new: "от 1300 руб." },
+      { old: "от 1500 руб.", new: "от 1200 руб." },
+      { old: "от 1400 руб.", new: "от 1110 руб." }
     ],
     size: ["до 15 м²", "от 15 м² до 50 м²", "более 50 м²"]
   },
@@ -449,9 +429,9 @@ const services = [
     image: "/img/IMG_5910.jfif",
     description: "Пленка 700 мкм, устойчивость к ультрафиолету, окантовка ПВХ с фурнитурой.",
     prices: [
-      { old: "от 1800 руб.", new: "от 1600 руб." },
-      { old: "от 1700 руб.", new: "от 1500 руб." },
-      { old: "от 1600 руб.", new: "от 1400 руб." }
+      { old: "от 1800 руб.", new: "от 1700 руб." },
+      { old: "от 1700 руб.", new: "от 1600 руб." },
+      { old: "от 1600 руб.", new: "от 1500 руб." }
     ],
     size: ["до 15 м²", "от 15 м² до 30 м²", "более 30 м²"]
   },
@@ -461,8 +441,8 @@ const services = [
     description: "Пленка 700 мкм, морозостойкая до -39°C, окантовка ПВХ с фурнитурой и с монтажом",
     prices: [
       { old: "30000 руб.", new: "27500 руб." },
-      { old: "45000 руб.", new: "42000 руб." },
-      { old: "от 2900 руб.", new: "от 2690 руб." }
+      { old: "41000 руб.", new: "36000 руб." },
+      { old: "от 2900 руб.", new: "от 2400 руб." }
     ],
     size: ["до 10 м²", "от 10 м² до 15 м²", "от 15 м² до 40 м²"]
   }
@@ -561,25 +541,34 @@ const showModal = ref(false);
 const faqRef = ref<HTMLElement | null>(null);
 
 let observer: IntersectionObserver | null = null;
+let lastScrollY = 0;
 
 // следим за состоянием модалки
 watch(showModal, (val) => {
   if (val) {
-    document.body.classList.add("_lock")
+    document.body.classList.add("_lock");
   } else {
-    document.body.classList.remove("_lock")
+    document.body.classList.remove("_lock");
   }
-})
+});
 
 onMounted(() => {
   if (faqRef.value) {
     observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          const currentScrollY = window.scrollY;
+
+          // Проверяем: элемент виден и скролл вниз
+          if (
+            entry.isIntersecting &&
+            currentScrollY > lastScrollY // движение вниз
+          ) {
             showModal.value = true; // показываем модалку
             observer?.disconnect(); // отключаем после первого раза
           }
+
+          lastScrollY = currentScrollY;
         });
       },
       { threshold: 0.5 } // сработает, когда 50% блока видно
@@ -590,9 +579,11 @@ onMounted(() => {
 });
 
 onBeforeUnmount(() => {
-  observer?.disconnect()
-  document.body.classList.remove("_lock") // на всякий случай повторно убираем класс
-})
+  observer?.disconnect();
+  document.body.classList.remove("_lock");
+});
+
+
 
 const sendData = async (payload: { name: string; phone: string }) => {
   try {
@@ -616,21 +607,46 @@ const sendData = async (payload: { name: string; phone: string }) => {
   <div>
     <TheHeader />
     <main class="main">
-      <section class="hero" style="position: relative">
-        <div class="hero__image"></div>
+      <section class="hero">
         <div class="container">
           <div class="hero__inner">
             <div class="hero__content">
-              <h1 class="hero__title">
+              <span class="hero__badge" itemprop="category">#Хедер</span>
+              <h1 class="hero__title" itemprop="name">
                 Мягкие окна из <span class="orange">гибкого ПВХ</span>
               </h1>
-              <h2 class="hero__subtitle">
+              <h2 class="hero__subtitle" itemprop="description">
                 Элегантное решение для вашего комфорта: мягкие окна из гибкого ПВХ от производителя — идеальный выбор
                 для веранд, беседок и террас, защищающих от ветра, дождя и холода.
               </h2>
+              <ul class="hero__features">
+                <li class="hero__feature">
+                  <span class="hero__feature-number">1</span>
+                  <span class="hero__feature-text">В 3 раза дешевле пластиковых окон</span>
+                </li>
+                <li class="hero__feature">
+                  <span class="hero__feature-number">2</span>
+                  <span class="hero__feature-text">Срок службы — до 10 лет</span>
+                </li>
+                <li class="hero__feature">
+                  <span class="hero__feature-number">3</span>
+                  <span class="hero__feature-text">Пропускаемость света 98%</span>
+                </li>
+                <li class="hero__feature">
+                  <span class="hero__feature-number">4</span>
+                  <span class="hero__feature-text">Выдерживают от -40°C до +70°C</span>
+                </li>
+              </ul>
               <div class="hero__buttons">
+                <p class="hero__buttons-text">Хотите уточнить детали? Звоните прямо сейчас!</p>
                 <nuxt-link class="hero__btn" href="#smeta1">Расчет стоимости</nuxt-link>
               </div>
+            </div>
+            <div class="hero__image">
+              <img class="hero__image-pattern1" src="public/img/Pattern1.png" alt="Декоративный паттерн">
+              <img class="hero__image-pattern2" src="public/img/Pattern2.png" alt="Декоративный паттерн">
+              <img class="hero__image-main" src="public/img/fb1ba1a1-82fb-4f70-a0a4-14917676aef0.jpg"
+                alt="Мягкие окна из гибкого ПВХ на веранде">
             </div>
           </div>
         </div>
@@ -674,7 +690,40 @@ const sendData = async (payload: { name: string; phone: string }) => {
         </div>
       </div>
 
-      <section class="recomendation">
+      <div class="price" id="price">
+        <div class="container">
+          <div class="price__inner">
+            <h2 class="price__title">
+              Стоимость <span class="orange">Мягких Окон</span> в готовой
+              комплектации
+            </h2>
+            <div class="price-table">
+              <!-- Перебор строк с услугами -->
+              <div class="price-table__row" v-for="(item, index) in services" :key="index">
+                <div class="price-table__cell">
+                  <div class="service-info">
+                    <img :src="item.image" :alt="item.description" class="service-info__image" />
+                    <div class="service-info__block">
+                      <h3 class="service-info__title">{{ item.title }}</h3>
+                      <p class="service-info__description">
+                        {{ item.description }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="price-table__cell" v-for="(price, i) in item.prices" :key="i">
+                  <span class="old-price">{{ price.old }}</span>
+                  <span class="new-price">{{ price.new }}</span>
+                  <span class="price-table__cell-text-gray">{{ item.size[i] }}</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="recomendation" ref="faqRef">
         <div class="container">
           <div class="recomendation__inner">
             <h2 class="recomendation__title">
@@ -744,39 +793,6 @@ const sendData = async (payload: { name: string; phone: string }) => {
           </div>
         </div>
       </section>
-
-      <div class="price" id="price">
-        <div class="container">
-          <div class="price__inner">
-            <h2 class="price__title">
-              Стоимость <span class="orange">Мягких Окон</span> в готовой
-              комплектации
-            </h2>
-            <div class="price-table">
-              <!-- Перебор строк с услугами -->
-              <div class="price-table__row" v-for="(item, index) in services" :key="index">
-                <div class="price-table__cell">
-                  <div class="service-info">
-                    <img :src="item.image" :alt="item.description" class="service-info__image" />
-                    <div class="service-info__block">
-                      <h3 class="service-info__title">{{ item.title }}</h3>
-                      <p class="service-info__description">
-                        {{ item.description }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="price-table__cell" v-for="(price, i) in item.prices" :key="i">
-                  <span class="old-price">{{ price.old }}</span>
-                  <span class="new-price">{{ price.new }}</span>
-                  <span class="price-table__cell-text-gray">{{ item.size[i] }}</span>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <section class="why" id="why">
         <h2 class="why__title">Почему выбирают <span class="orange">нас?</span></h2>
@@ -884,7 +900,9 @@ const sendData = async (payload: { name: string; phone: string }) => {
                     <!-- Слайдер -->
                     <input type="range" min="1" max="100" v-model="answers.area" class="quiz__slider" />
                   </div>
-                  <p class="quiz__slider-value">{{ answers.area }} м²</p>
+                  <div class="quiz__slider-value-wrapper">
+                    <input type="number" min="1" max="100" v-model="answers.area" class="quiz__slider-value" /> м²
+                  </div>
                 </div>
               </div>
 
@@ -1156,7 +1174,7 @@ const sendData = async (payload: { name: string; phone: string }) => {
         </div>
       </section>
 
-      <section class="faq" id="faq" ref="faqRef">
+      <section class="faq" id="faq">
         <div class="container">
           <div class="faq__inner">
             <h2 class="faq__title">Частые вопросы</h2>
@@ -1656,7 +1674,7 @@ const sendData = async (payload: { name: string; phone: string }) => {
   }
 
   &__title {
-    font-family: "Unbounded";
+    font-family: Unbounded;
     font-style: normal;
     font-weight: 600;
     font-size: 3rem;
@@ -1666,7 +1684,7 @@ const sendData = async (payload: { name: string; phone: string }) => {
   }
 
   &__subtitle {
-    font-family: Unbounded;
+    font-family: 'Nunito Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 1.8rem;
@@ -1927,14 +1945,46 @@ const sendData = async (payload: { name: string; phone: string }) => {
     }
   }
 
-  &__slider-value {
-    font-family: Unbounded;
+  &__slider-value-wrapper {
+    display: flex;
+    align-items: center;
+    font-family: "Unbounded";
     font-style: normal;
     font-weight: 500;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     line-height: 150%;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
     color: #fff;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  &__slider-value {
+    border: 1px solid #363A3D;
+    border-radius: 8px;
+    padding: 0px 16px;
+    background: #1A1D21;
+    height: 48px;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.01em;
+    color: #CDCECF;
+    width: 6.5rem;
+  }
+
+  &__slider-value::-webkit-outer-spin-button,
+  &__slider-value::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &__slider-value {
+    -moz-appearance: textfield;
+    /* Firefox */
   }
 
   &__options {
@@ -2233,18 +2283,30 @@ const sendData = async (payload: { name: string; phone: string }) => {
 }
 
 .hero {
-  background: #f9f9f9;
-  border-radius: 0px 0px 72px 72px;
-  position: relative;
-  height: 100vh;
-  width: 100%;
+  padding-top: 5rem;
+
+  &__inner {
+    display: flex;
+    gap: 2.5rem;
+  }
 
   &__content {
-    padding-top: 21.7rem;
-    padding-bottom: 9.8rem;
-    max-width: 61rem;
-    margin: 0 auto;
     position: relative;
+  }
+
+  &__badge {
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 160%;
+    text-align: center;
+    color: #1A1D21;
+    padding: 0.2rem 0.8rem;
+    background-color: #82DBF7;
+    border-radius: 3.6rem;
+    margin-bottom: 1.6rem;
+    display: inline-flex;
   }
 
   &__title {
@@ -2270,9 +2332,16 @@ const sendData = async (payload: { name: string; phone: string }) => {
   }
 
   &__buttons {
+    margin-top: 6rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    font-family: "Nunito Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 160%;
+    color: #dbdbdb;
   }
 
   &__btn {
@@ -2298,15 +2367,78 @@ const sendData = async (payload: { name: string; phone: string }) => {
     }
   }
 
+  &__features {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__feature-number {
+    min-width: 4.8rem;
+    height: 4.8rem;
+    background-color: #82DBF7;
+    display: flex;
+    color: #1A1D21;
+    font-family: "Unbounded";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.1rem;
+    line-height: 150%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 1.2rem;
+  }
+
+  &__feature-text {
+    font-family: "Unbounded";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 150%;
+    color: #fff;
+  }
+
   &__image {
-    position: absolute;
+    max-width: 62rem;
+    min-width: 55rem;
+    padding: 3.4rem;
+    position: relative;
+  }
+
+  &__image>img {
+    height: 100%;
     width: 100%;
-    background-image: url("/img/fb1ba1a1-82fb-4f70-a0a4-14917676aef0.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    filter: brightness(0.5);
+  }
+
+  &__image-main {
+    position: relative;
+    z-index: 1;
+    border-radius: 2.4rem;
+    object-fit: cover
+  }
+
+  &__image-pattern1 {
+    position: absolute;
+    max-width: 13rem;
+    max-height: 13rem;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  &__image-pattern2 {
+    position: absolute;
+    max-width: 14.9rem;
+    max-height: 9.1rem;
+    bottom: 0;
+    right: 0;
   }
 
   &__button {
@@ -2315,10 +2447,43 @@ const sendData = async (payload: { name: string; phone: string }) => {
     width: 100%;
   }
 
+  @media (max-width: 979.98px) {
+    &__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__features {
+      margin: 0 auto;
+      max-width: fit-content;
+    }
+
+    &__buttons {
+      margin: 0 auto;
+      margin-top: 6rem;
+      max-width: fit-content;
+      text-align: center;
+    }
+
+    &__image {
+      max-width: none;
+      min-width: auto;
+    }
+  }
+
   @media (max-width: 767.98px) {
-    &__content {
-      padding-top: 9rem;
-      padding-bottom: 9rem;
+    &__image {
+      padding: 2.8rem;
+    }
+
+    &__image-pattern1 {
+      max-width: 9rem;
+      max-height: 9rem;
+    }
+
+    &__image-pattern2 {
+      max-width: 10.9rem;
+      max-height: 7.1rem;
     }
   }
 
@@ -2331,6 +2496,20 @@ const sendData = async (payload: { name: string; phone: string }) => {
   @media (max-width: 575.98px) {
     &__title {
       font-size: 3rem;
+    }
+
+    &__image {
+      padding: 2rem;
+    }
+
+    &__image-pattern1 {
+      max-width: 7rem;
+      max-height: 7rem;
+    }
+
+    &__image-pattern2 {
+      max-width: 8.9rem;
+      max-height: 5.1rem;
     }
   }
 
@@ -2351,6 +2530,10 @@ const sendData = async (payload: { name: string; phone: string }) => {
 
     &__button {
       padding: 1.4rem 2.5rem;
+    }
+
+    &__feature-text {
+      font-size: 1.5rem;
     }
   }
 }
@@ -3016,7 +3199,7 @@ const sendData = async (payload: { name: string; phone: string }) => {
 
 .feedback-customer {
   position: relative;
-  margin-top: -7rem;
+  margin-top: 10rem;
 
   &__inner {
     padding-bottom: 14rem;
