@@ -571,7 +571,7 @@ onMounted(() => {
           lastScrollY = currentScrollY;
         });
       },
-      { threshold: 0.1 } // сработает, когда 50% блока видно
+      { threshold: 0.1 } // сработает, когда 10% блока видно
     );
 
     observer.observe(faqRef.value);
