@@ -789,7 +789,6 @@ const sendData = async (payload: { name: string; phone: string }) => {
                 <div class="quiz__options">
                   <div v-for="(item, index) in doorOptions" :key="index" @click="selectDoorway(item)"
                     :class="['quiz__option', { 'quiz__option--selected': answers.doorways?.id === item.id }]">
-                    <img class="quiz__option-image" :src="item.image" :alt="item.text" />
                     <p class="quiz__option-text">{{ item.text }}</p>
                   </div>
                 </div>
@@ -824,7 +823,6 @@ const sendData = async (payload: { name: string; phone: string }) => {
                           answers.configuration?.id === item.id,
                       },
                     ]">
-                    <img class="quiz__equipment-image" :src="item.image" :alt="item.name" />
                     <div class="quiz__equipment-block-text">
                       <p class="quiz__equipment-text">{{ item.name }}</p>
                       <h4 class="quiz__equipment-title">{{ item.title }}</h4>
@@ -1989,11 +1987,10 @@ const sendData = async (payload: { name: string; phone: string }) => {
   }
 
   &__options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    width: 100%;
     gap: 20px;
     padding: 25px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__option {
@@ -2002,6 +1999,8 @@ const sendData = async (payload: { name: string; phone: string }) => {
     text-align: center;
     border-radius: 1rem;
     transition: all 0.3s ease;
+    width: fit-content;
+    padding: 0 2rem;
 
     &--selected {
       border-color: #676767;
