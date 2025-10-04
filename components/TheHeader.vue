@@ -260,7 +260,7 @@ const scrollToElement = (target: string) => {
       top: 0;
       left: 0;
       z-index: 5;
-      padding: 170px 0 0 0;
+      padding: 130px 0 0 0;
       flex-direction: column;
       justify-content: space-between;
       overflow: auto;
@@ -275,7 +275,7 @@ const scrollToElement = (target: string) => {
       content: "";
       width: 100%;
       height: 1px;
-      top: 160px;
+      top: 130px;
       left: 0;
     }
 
@@ -416,7 +416,7 @@ const scrollToElement = (target: string) => {
 
 @media (max-width: 1099.98px) {
   .header {
-    height: 17rem;
+    height: 13rem;
   }
 }
 

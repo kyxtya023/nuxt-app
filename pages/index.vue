@@ -9,6 +9,7 @@ import TabContent from "../components/TabContent.vue";
 import btnFloating from "../components/btnFloating.vue";
 import Notification from "~/components/Notification.vue";
 import FeedbackModal from "~/components/FeedbackModal.vue"
+import Gallery from "~/components/Gallery.vue";
 
 import { useNotifications } from '~/composables/useNotifications';
 import { tabContents } from "@/data/tabContents";
@@ -16,107 +17,18 @@ import { questions as faqQuestions } from "../data/questionsAccordeon";
 
 import "swiper/css";
 
+interface GalleryImage {
+  src: string
+}
+
 const containerRef = ref(null)
 const swiper = useSwiper(containerRef)
-const imageLinks: string[] = [
-  // Локальные изображения .jpg
-  // 1
-  "/img/gallery/gallery/1.jpg",
-  // 2
-  "/img/gallery/gallery/2.jpg",
-  // 3
-  "/img/gallery/gallery/3.jpg",
-  // 4
-  "/img/gallery/gallery/4.jpg",
-  // 5
-  "/img/gallery/gallery/5.jpg",
-  // 6
-  "/img/gallery/gallery/6.jpg",
-  // 7
-  "/img/gallery/gallery/7.jpg",
-  // 8
-  "/img/gallery/gallery/8.jpg",
-  // 9
-  "/img/gallery/gallery/9.jpg",
-  // 10
-  "/img/gallery/gallery/10.jpg",
-  // 11
-  "/img/gallery/gallery/11.jpg",
-  // 12
-  "/img/gallery/gallery/12.jpg",
-  // 13
-  "/img/gallery/gallery/13.jpg",
-  // 14
-  "/img/gallery/gallery/14.jpg",
-
-  // Локальные изображения .jpeg
-  // 15
-  "/img/gallery/gallery/15.jpeg",
-  // 16
-  "/img/gallery/gallery/16.jpeg",
-  // 17
-  "/img/gallery/gallery/17.jpeg",
-  // 18
-  "/img/gallery/gallery/18.jpeg",
-  // 19
-  "/img/gallery/gallery/19.jpeg",
-  // 20
-  "/img/gallery/gallery/20.jpeg",
-  // 21
-  "/img/gallery/gallery/21.jpeg",
-  // 22
-  "/img/gallery/gallery/22.jpeg",
-  // 23
-  "/img/gallery/gallery/23.jpeg",
-  // 24
-  "/img/gallery/gallery/24.jpeg",
-  // 25
-  "/img/gallery/gallery/25.jpeg",
-  // 26
-  "/img/gallery/gallery/26.jpeg",
-
-  // Из внешнего источника picloud.cc
-  // 27
-  "https://picloud.cc/images/058d441ccbee12fe2b798ac7c2a56739.jpg",
-  // 28
-  "https://picloud.cc/images/7bb51b13644b2ff54965533e82ad974b.jpg",
-  // 29
-  "https://picloud.cc/images/9b7e0b37b66e1ed4ac250884e645b4d5.jpg",
-  // 48
-  "https://picloud.cc/images/4619617cb1f1af12a38a058e40a4f2fd.jpg",
-  // 49
-  "https://picloud.cc/images/f0ef0e4dfbe2489897fe062a397fb436.jpg",
-  // 50
-  "https://picloud.cc/images/a2100106ab3f0acdde0db6e63fa605ec.jpg",
-  // 51
-  "https://picloud.cc/images/892a1220ca48bee2c2a05812428d984e.jpg",
-  // 52
-  "https://picloud.cc/images/ed2e09fca8981c318fc9f4e1c15babe4.jpg",
-  // 53
-  "https://picloud.cc/images/478fad929879a5d735aca6559576833a.jpg",
-  // 54
-  "https://picloud.cc/images/d60a2901a25759868a22d2372c40dce8.jpg",
-  // 60
-  "https://picloud.cc/images/d6c8b4186524046ae4b77658aa9b20a1.jpg",
-  // 61
-  "https://picloud.cc/images/03858a5fbba7b708ce4bc68fcd239771.jpg",
-  // 62
-  "https://picloud.cc/images/cde585dd30e41263ba149ad1999f14de.jpg",
-  // 63
-  "https://picloud.cc/images/4c86766c8c6856f2ab917bcbfd6e7e99.jpg",
-];
+const imageLinks: GalleryImage[] = await $fetch<GalleryImage[]>('/api/images');
 
 const loading = ref(true);
 const skeletonCount = 16; // Количество скелетонов для загрузки
-const processedImages = ref<string[]>([]); // Здесь будут ссылки на изображения
 const isModalOpen = ref(false);
 const currentImage = ref<string | null>(null);
-
-// Имитация загрузки изображений
-setTimeout(() => {
-  processedImages.value = imageLinks;
-  loading.value = false;
-}, 2000); // Условный таймаут для демонстрации
 
 const openModal = (image: string) => {
   currentImage.value = image;
@@ -416,35 +328,35 @@ const services = [
   {
     title: "Комплект «Эконом»",
     image: "/img/IMG_5912.jfif",
-    description: "Пленка 700 мкм, морозостойкая до -39°C",
+    description: "Пленка 700 мкм, морозостойкая до -39°C. На выбор 5 цветов окантовки: белый, серый, коричневый, черный, бежевый",
     prices: [
-      { old: "от 1600 руб.", new: "от 1300 руб." },
-      { old: "от 1500 руб.", new: "от 1200 руб." },
-      { old: "от 1400 руб.", new: "от 1110 руб." }
+      { old: "", new: "от 1600 руб." },
+      { old: "", new: "1200 руб. за м²" },
     ],
-    size: ["до 15 м²", "от 15 м² до 50 м²", "более 50 м²"]
+    size: ["за м²", "Без окантовки (пленка на отрез)",]
   },
   {
-    title: "Комплект «Стандарт»",
+    title: "Комплект «Самомонтаж»",
     image: "/img/IMG_5910.jfif",
-    description: "Пленка 700 мкм, устойчивость к ультрафиолету, окантовка ПВХ с фурнитурой.",
+    description: "Пленка 700 мкм, морозостойкая до -39. Окантовка пвх цвет коричневый, пластиковая поворотная скоба по бокам, верх саморезы, низ без крепления, без монтажа.",
     prices: [
-      { old: "от 1800 руб.", new: "от 1700 руб." },
-      { old: "от 1700 руб.", new: "от 1600 руб." },
-      { old: "от 1600 руб.", new: "от 1500 руб." }
+      { old: "", new: "от 1800 руб." },
+      { old: "", new: "" },
+      { old: "", new: "Дополнительно (оплачивается отдельно)" },
     ],
-    size: ["до 15 м²", "от 15 м² до 30 м²", "более 30 м²"]
+    size: ["за м²", "", "Серый, белый, бежевый, черный цвет окантовки за квадратный метр 100р.  Нижнее крепление 200р. за шт (люверс + скоба)"]
   },
   {
     title: "Под ключ",
     image: "/img/IMG_5872.jfif",
-    description: "Пленка 700 мкм, морозостойкая до -39°C, окантовка ПВХ с фурнитурой и с монтажом",
+    description: "Пленка 700 мкм, морозостойкая до -39°C. Окантовка пвх цвет коричневый, пластиковая поворотная скоба по бокам, верх саморезы, низ без крепления, с монтажом.",
     prices: [
-      { old: "30000 руб.", new: "27500 руб." },
-      { old: "41000 руб.", new: "36000 руб." },
-      { old: "от 2900 руб.", new: "от 2400 руб." }
+      { old: "", new: "от 35000 руб." },
+      { old: "", new: "от 50000 руб." },
+      { old: "", new: "от 2500 руб. от 20 м²." },
     ],
-    size: ["до 10 м²", "от 10 м² до 15 м²", "от 15 м² и более за м²"]
+    size: ["до 10 м²", "от 10 м² до 20 м²", `Дополнительно (оплачивается отдельно)
+    Молнии для входной группы - за погонный метр 1300р`,]
   }
 ];
 
@@ -699,28 +611,58 @@ const sendData = async (payload: { name: string; phone: string }) => {
               Стоимость <span class="orange">Мягких Окон</span> в готовой
               комплектации
             </h2>
-            <div class="price-table">
-              <!-- Перебор строк с услугами -->
-              <div class="price-table__row" v-for="(item, index) in services" :key="index">
-                <div class="price-table__cell">
-                  <div class="service-info">
-                    <img :src="item.image" :alt="item.description" class="service-info__image" />
-                    <div class="service-info__block">
-                      <h3 class="service-info__title">{{ item.title }}</h3>
-                      <p class="service-info__description">
-                        {{ item.description }}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="price-table__cell" v-for="(price, i) in item.prices" :key="i">
-                  <span class="old-price">{{ price.old }}</span>
-                  <span class="new-price">{{ price.new }}</span>
-                  <span class="price-table__cell-text-gray">{{ item.size[i] }}</span>
-                </div>
-              </div>
-              <span id="estimates"></span>
-            </div>
+<div class="price-table">
+  <div
+    class="price-table__row"
+    :class="{
+      'price-table__row--econom': index === 0,
+      'price-table__row--samomontazh': index === 1,
+      'price-table__row--podklyuch': index === 2
+    }"
+    v-for="(item, index) in services"
+    :key="index"
+  >
+    <!-- Первая ячейка -->
+    <div class="price-table__cell">
+      <div class="service-info">
+        <img :src="item.image" :alt="item.description" class="service-info__image" />
+        <div class="service-info__block">
+          <h3 class="service-info__title">{{ item.title }}</h3>
+          <p class="service-info__description">{{ item.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Остальные ячейки -->
+    <template v-if="index === 1">
+      <!-- Самомонтаж -->
+      <div class="price-table__cell">
+        <span class="old-price">{{ item.prices[0].old }}</span>
+        <span class="new-price">{{ item.prices[0].new }}</span>
+        <span class="price-table__cell-text-gray">{{ item.size[0] }}</span>
+      </div>
+      <div class="price-table__cell price-table__cell--wide">
+        <span class="old-price">{{ item.prices[2].old }}</span>
+        <span class="new-price">{{ item.prices[2].new }}</span>
+        <span class="price-table__cell-text-gray">{{ item.size[2] }}</span>
+      </div>
+    </template>
+
+    <template v-else>
+      <!-- Обычные ряды -->
+      <div
+        class="price-table__cell"
+        v-for="(price, i) in item.prices"
+        :key="i"
+      >
+        <span class="old-price">{{ price.old }}</span>
+        <span class="new-price">{{ price.new }}</span>
+        <span class="price-table__cell-text-gray">{{ item.size[i] }}</span>
+      </div>
+    </template>
+  </div>
+</div>
+
           </div>
         </div>
       </div>
@@ -1150,25 +1092,7 @@ const sendData = async (payload: { name: string; phone: string }) => {
         <div class="container">
           <div class="watermark__inner">
             <h2 class="watermark__title">Наши <span class="orange">работы</span></h2>
-            <!-- Skeleton loader while images are loading -->
-            <div v-if="loading" class="watermark-else">
-              <div v-for="index in skeletonCount" :key="index">
-                <div class="w-[100%] h-[22rem] rounded-xl" />
-              </div>
-            </div>
-
-            <!-- Processed images -->
-            <div v-else class="watermark-else">
-              <div v-for="(image, index) in processedImages" :key="index">
-                <img :src="image" alt="Пленочные окна ПВХ для дачи, уют и тепло в любое время года"
-                  style="width: 100%; height: 100%;" class="watermark-img" loading="lazy" @click="openModal(image)" />
-              </div>
-            </div>
-
-            <!-- Modal for full-screen view -->
-            <div v-if="isModalOpen" class="modal" @click="closeModal">
-              <img :src="currentImage || ''" alt="Мягкие окна для террасы, утепление с помощью ПВХ" />
-            </div>
+            <Gallery :images="imageLinks"/>
           </div>
         </div>
       </section>
@@ -2807,41 +2731,96 @@ const sendData = async (payload: { name: string; phone: string }) => {
 
 .price-table {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  /* Ширина колонок */
+  // grid-template-columns: 1.5fr 1fr 1fr 1fr; // по умолчанию 4 колонки
   gap: 1rem;
-  /* Расстояние между ячейками */
   padding: 1rem;
   overflow: hidden;
   border-radius: 10px;
-  // box-shadow: 0px 4px 35px 12px rgba(0, 0, 0, 0.04);
   box-shadow: 0px 4px 35px 12px rgb(255 255 255 / 0%);
 
   &__row {
-    display: contents;
-    /* Сохраняем элементы в структуре грида */
+    display: grid;
+    gap: 1rem;
+    width: 100%;
   }
 
-  &__header {}
+  /* Эконом — 3 колонки */
+  &__row--econom {
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+  }
+
+  /* Самомонтаж — 3 колонки */
+  &__row--samomontazh {
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+  }
+
+  /* Под ключ — 4 колонки */
+  &__row--podklyuch {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "cell1 cell2 cell3"
+      "cell1 cell4 cell4";
+  }
+
+  &__row--podklyuch>&__cell:nth-child(1) {
+    grid-area: cell1;
+  }
+  &__row--podklyuch>&__cell:nth-child(2) {
+    grid-area: cell2;
+  }
+  &__row--podklyuch>&__cell:nth-child(3) {
+   grid-area: cell3;
+  }
+  &__row--podklyuch>&__cell:nth-child(4) {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: normal;
+  }
+
+  &__row--podklyuch>&__cell:nth-child(4)>.new-price {
+    margin-left: 1rem;
+  }
+  
 
   &__cell {
     background-color: #212121;
     padding: 1.5rem;
     border: 1px solid #393838;
-    /* Граница ячеек */
     text-align: center;
     border-radius: 15px;
-    justify-content: center;
     font-family: "Unbounded";
-    font-style: normal;
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     line-height: 150%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    justify-content: center;
     color: #fff;
+  }
+
+  &__cell--wide {
+    // grid-column: span 2;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  &__cell.price-table__cell--wide >.new-price {
+    margin-left: 1rem;
+  }
+  
+  &__cell.price-table__cell--wide {
+    // grid-column: span 2; // объединяет две последние колонки
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: normal;
   }
 
   &__cell-text-gray {

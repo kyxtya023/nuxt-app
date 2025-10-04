@@ -2,48 +2,48 @@
   <!-- Основная круглая кнопка -->
   <div class="floating-btn" @click="toggleMenu">
     <i class="phone">
-      <img src="/public/img/whatsapp.png" alt="">
+      <img src="/public/img/whatsapp.png" alt="" />
       <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 5V12M12 12V19M12 12H19M12 12H5" stroke="#222222" stroke-width="1.5" stroke-linecap="round"/>
 </svg> -->
-</i>
+    </i>
   </div>
 
   <!-- Скрытое меню с двумя круглыми ссылками -->
   <div v-if="isMenuVisible" class="floating-btn-menu">
     <!-- Ссылка для WhatsApp -->
-    <a 
-      class="floating-btn-item whatsapp-btn" 
-      href="https://wa.me/+79661266606" 
-      target="_blank" 
+    <a
+      class="floating-btn-item whatsapp-btn"
+      href="https://wa.me/+79661266606"
+      target="_blank"
       aria-label="Написать в WhatsApp"
     >
-      <i class="fa fa-phone"><img src="/public/img/whatsapp.png" alt=""></i>
+      <i class="fa fa-phone"><img src="/public/img/whatsapp.png" alt="" /></i>
     </a>
-    
+
     <!-- Ссылка для вызова -->
-    <a 
-      class="floating-btn-item phone-btn" 
-      href="tel:+79661266606" 
-      target="_blank" 
+    <a
+      class="floating-btn-item phone-btn"
+      href="tel:+79661266606"
+      target="_blank"
       aria-label="Позвонить"
     >
-      <i class="fa fa-whatsapp"><img src="/public/img/phone.png" alt=""></i>
+      <i class="fa fa-whatsapp"><img src="/public/img/phone.png" alt="" /></i>
     </a>
-    <a 
-      class="floating-btn-item tg-btn" 
+    <a
+      class="floating-btn-item tg-btn"
       href="https://t.me/plenochnyeOkna"
-      target="_blank" 
+      target="_blank"
       aria-label="Позвонить"
     >
-      <i class="fa fa-tg"><img src="/public/img/icons8-telegram-logo-67.png" alt=""></i>
+      <i class="fa fa-tg"><img src="/public/img/icons8-telegram-logo-67.png" alt="" /></i>
     </a>
   </div>
 </template>
 
 <script setup>
 // Стейт для управления видимостью меню
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const isMenuVisible = ref(false);
 
@@ -54,7 +54,6 @@ const toggleMenu = () => {
 </script>
 
 <style lang="scss" scoped>
-
 body._lock .floating-btn {
   display: none;
 }
@@ -78,12 +77,11 @@ body._lock .floating-btn {
     background: rgb(167, 229, 247);
   }
 
-  &>i>svg {
+  & > i > svg {
     width: 3rem;
     height: 3rem;
   }
 }
-
 
 .floating-btn-menu {
   position: fixed;
@@ -123,33 +121,43 @@ body._lock .floating-btn {
   position: relative;
   z-index: -1; /* Ставим кнопку WhatsApp за кнопку телефона */
   /* Начальная позиция кнопки WhatsApp: скрыта за кнопкой для звонка */
-  transform: translateY(30px) scale(0); 
+  transform: translateY(30px) scale(0);
   opacity: 0;
   width: 5rem;
   height: 5rem;
 }
 
-.fa.fa-whatsapp img{
+.fa.fa-whatsapp img {
   width: 100%;
   height: 100%;
 }
 
-.fa.fa-phone img{
+.fa.fa-phone img {
   width: 100%;
   height: 100%;
 }
 
-.fa.fa-tg img{
+.fa.fa-tg img {
   width: 100%;
   height: 100%;
 }
 
-@media (max-width:479.98px) {
+@media (max-width: 479.98px) {
   .floating-btn {
-    &>i>svg {
+    & > i > svg {
       width: 3rem;
       height: 3rem;
-    } 
+    }
+  }
+
+  .phone {
+    width: 100%;
+    height: 100%;
+  }
+
+  .phone > img {
+    width: 100%;
+    height: 100%;
   }
 
   .floating-btn-menu {
